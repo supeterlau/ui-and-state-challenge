@@ -2,19 +2,13 @@ import { List, ListItem, Box, Button, Divider } from "@/components";
 import { useAppStore } from "@/store";
 
 import { Asset as AssetDataProps } from "@chain-registry/client/node_modules/@chain-registry/types/types/assets";
+import { BaseProps } from "../app_common/Base";
 
 interface AssetProps {
   data: AssetDataProps;
-  // data: Data;
 }
 
-interface Data {
-  name: string;
-  age: number;
-  symbol: string;
-}
-
-export function AssetList() {
+export function AssetList(props: BaseProps) {
   const toggleModalOpen = useAppStore((state) => state.toggleModalOpen);
   const setModalChild = useAppStore((state) => state.setModalChild);
   const assetList = useAppStore((state) => state.assetList);
@@ -33,14 +27,14 @@ export function AssetList() {
       <Box>{props.data.name}</Box>
       <Box>{props.data.symbol}</Box>
       <Box>
-        <Button onClick={() => handleAddBtnClick("desposit")}>Desposit</Button>
+        <Button onClick={() => handleAddBtnClick("deposit")}>Deposit</Button>
       </Box>
     </ListItem>
   );
 
   return (
     <>
-      <List styles={{ maxHeight: "calc(100vh - 12rem)", height: "100%" }}>
+      <List styles={{ maxHeight: "calc(100vh - 13rem)", height: "100%" }}>
         <ListItem>
           <Box>Name</Box>
           <Box>Symbol</Box>

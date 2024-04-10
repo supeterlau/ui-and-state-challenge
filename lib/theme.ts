@@ -5,7 +5,7 @@ export const darkTheme = {
     primary: "red",
     darkIndigo: "#071530",
     paleGray: "#e5e5e8",
-    background: "#252525",
+    background: "#3b3737",
     text: "#ffffff",
   },
 };

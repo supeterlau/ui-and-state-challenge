@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Container } from "@/components";
+import { Container, Divider } from "@/components";
 import ThemeToggleContext from "@/lib/theme";
 
 const StyledDiv = styled.div`
@@ -37,6 +37,7 @@ export function Footer(props) {
           minHeight: "3rem",
           alignItems: "center",
           padding: "0 2rem",
+          borderTop: "solid white 1px",
         }}
       >
         <div>Built by</div>

@@ -1,6 +1,7 @@
 import React, { CSSProperties } from "react";
+import { BlockProps } from "./Base";
 
-interface DialogProps {
+interface DialogProps extends BlockProps {
   children: React.ReactNode;
   open: boolean;
   onClose: Function;
@@ -25,6 +26,8 @@ function Dialog(props: DialogProps) {
         backgroundColor: "white",
         justifyContent: "center",
         alignItems: "center",
+        // color: props.theme?.color.text,
+        // backgroundColor: props.theme?.color.background,
       }}
     >
       <div
@@ -38,6 +41,8 @@ function Dialog(props: DialogProps) {
           // width: "100%",
           // maxWidth: "28rem",
           backgroundColor: "#ffffff",
+          color: "#252525",
+          // backgroundColor: props.theme?.color.background,
         }}
       >
         <div>{props.children}</div>
@@ -110,8 +115,8 @@ interface CSSPropertiesWithMore extends CSSProperties {
   "--color": string;
   "--bg-opacity": string;
   ":hover": {};
-  // any other vars you may use
 }
+
 function IconButton(props: IconButtonProps) {
   const {
     children,
@@ -133,7 +138,7 @@ function IconButton(props: IconButtonProps) {
   );
 }
 
-interface ConfirmProps {
+interface ConfirmProps extends DialogProps {
   title: string;
   children: React.ReactNode;
   open: boolean;
@@ -148,7 +153,7 @@ export function ConfirmDialog(props: ConfirmProps) {
   }
 
   return (
-    <Dialog open={open} onClose={onClose}>
+    <Dialog open={open} onClose={onClose} theme={props.theme}>
       <h2 style={{ fontSize: "1.25rem", lineHeight: "1.75rem" }}>{title}</h2>
       <div style={{ paddingTop: "1.25rem", paddingBottom: "1.25rem" }}>
         {children}

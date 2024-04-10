@@ -1,12 +1,14 @@
 import Link from "next/link";
 import styled from "@emotion/styled";
 import { Divider } from "./Divider";
+import { BlockProps } from "./Base";
 
-const Nav = styled("nav")`
+const Nav = styled("nav")<BlockProps>`
   border-color: #e5e7eb;
-  background-color: #ffffff;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  color: ${(props) => props.theme.color.text};
+  background-color: ${(props) => props.theme.color.background};
 `;
 
 const NavContainer = styled("div")`
@@ -22,10 +24,12 @@ const LogoContainer = styled("a")`
   display: flex;
   align-items: center;
 `;
+
 const Logo = styled("img")`
   margin-right: 0.75rem;
   height: 2rem;
 `;
+
 const MenuButton = styled("button")`
   display: inline-flex;
   padding: 0.5rem;
@@ -68,13 +72,16 @@ const MenuTip = styled("span")`
 const NavList = styled("div")`
   display: none;
   width: 100%;
+  height: 2rem;
 
   @media (min-width: 768px) {
     display: block;
     width: auto;
   }
 `;
-const NavLinks = styled("ul")`
+const NavLinks = styled("ul")<BlockProps>`
+  color: ${(props) => props.theme.color.text};
+  background-color: ${(props) => props.theme.color.background};
   display: flex;
   padding: 1rem;
   margin-top: 1rem;
@@ -102,6 +109,7 @@ const NavLinks = styled("ul")`
     background-color: #ffffff;
   }
 `;
+
 const HomeLink = styled("a")`
   display: block;
   padding-top: 0.5rem;
@@ -118,6 +126,7 @@ const HomeLink = styled("a")`
     background-color: transparent;
   }
 `;
+
 const NavLink = styled(Link)`
   display: block;
   padding-top: 0.5rem;
@@ -137,7 +146,7 @@ const NavLink = styled(Link)`
   }
 `;
 
-const NavMenuList = styled("div")`
+const NavMenuList = styled("div")<BlockProps>`
   display: none;
   position: absolute;
   background-color: #f1f1f1;
@@ -145,16 +154,20 @@ const NavMenuList = styled("div")`
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 100;
   right: 0px;
+  top: 3rem;
+  background-color: ${(props) => props.theme.color.background};
   a {
-    color: black;
+    color: ${(props) => props.theme.color.text};
     padding: 12px 16px;
     text-decoration: none;
     display: block;
   }
   a:hover {
     background-color: #ddd;
+    background-color: ${(props) => props.theme.color.background};
   }
 `;
+
 export function Header() {
   return (
     <>
@@ -199,9 +212,17 @@ export function Header() {
             </NavMenuList>
           </MenuButton>
           <NavList id="navbar-dropdown">
-            <NavLinks>
-              <li>
-                <HomeLink href="#" aria-current="page">
+            <NavLinks style={{ height: "2rem" }}>
+              <li
+                style={{
+                  paddingRight: "15px",
+                }}
+              >
+                <HomeLink
+                  href="#"
+                  aria-current="page"
+                  style={{ paddingTop: "15%" }}
+                >
                   Menu
                 </HomeLink>
                 <NavMenuList>

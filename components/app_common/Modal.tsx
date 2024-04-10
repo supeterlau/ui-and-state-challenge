@@ -47,8 +47,7 @@ const ModalContent = styled("div")<BlockProps>(
   })
 );
 
-export interface ModalProps {
-  children?: React.ReactNode;
+export interface ModalProps extends BlockProps {
   close: () => void;
 }
 

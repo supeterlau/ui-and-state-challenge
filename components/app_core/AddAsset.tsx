@@ -17,8 +17,9 @@ import {
 import { providers } from "@/lib/data";
 import { chainNames } from "@/lib/constants";
 import { useAppStore } from "@/store";
+import { BaseProps } from "../app_common/Base";
 
-export const AddAsset = () => {
+export const AddAsset = (props: BaseProps) => {
   const [assetSymbol, setAssetSymbol] = useState("");
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [assetList, setAssetList] = useState<AssetList>();
@@ -109,6 +110,7 @@ export const AddAsset = () => {
         </Button>
       </Container>
       <ConfirmDialog
+        theme={props.theme}
         title="Add Asset?"
         open={confirmOpen}
         onClose={() => handleConfirmClose()}

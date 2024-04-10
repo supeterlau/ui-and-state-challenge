@@ -10,6 +10,7 @@ export interface BaseProps {
   mb?: string;
   styles?: CSSProperties;
   theme?: typeof darkTheme;
+  children?: React.ReactNode;
 }
 
 export interface BlockProps extends BaseProps {}

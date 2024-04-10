@@ -14,8 +14,9 @@ import {
   WithModalDeposit,
 } from "@/components";
 import { useAppStore } from "@/store";
+import { BaseProps } from "./Base";
 
-export const Layout = ({ children }: { children: React.ReactNode }) => {
+export const Layout = ({ children, ...props }: BaseProps) => {
   const isModalOpen = useAppStore((state) => state.isModalOpen);
   const toggleModalOpen = useAppStore((state) => state.toggleModalOpen);
   const modalChild = useAppStore((state) => state.modalChild);
@@ -36,7 +37,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
   }
   const ShowModal = ({ modalChild, ...props }: ShowModalProps) => {
     if (modalChild === "addAsset") return <WithModalAddAsset {...props} />;
-    if (modalChild === "desposit") return <WithModalDeposit {...props} />;
+    if (modalChild === "deposit") return <WithModalDeposit {...props} />;
     if (modalChild === "addRandomAssets")
       return <WithModalAddRandomAssets {...props} />;
     return <WithModalAddAsset {...props} />;
@@ -62,7 +63,11 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
       {/*   </Modal> */}
       {/* ) : null} */}
       {isModalOpen ? (
-        <ShowModal modalChild={modalChild} close={() => toggleModalOpen()} />
+        <ShowModal
+          theme={props.theme}
+          modalChild={modalChild}
+          close={() => toggleModalOpen()}
+        />
       ) : null}
       {isShowAlert ? (
         <Alert setClose={() => hideAlert()} label={alertLabel}>

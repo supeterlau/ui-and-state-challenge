@@ -7,13 +7,14 @@ import ThemeToggleContext, { darkTheme, lightTheme } from "@/lib/theme";
 import styled from "@emotion/styled";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
+import { BaseProps } from "./Base";
 
 const StyledMain = styled.main`
   height: calc(100vh - 5em);
   width: 100%;
 `;
 
-const MainLayoutContainer = styled.div`
+const MainLayoutContainer = styled.div<BaseProps>`
   width: 100vw;
   height: 100vh;
   display: flex;

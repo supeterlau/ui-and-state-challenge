@@ -9,8 +9,10 @@ export * from "./Title";
 export * from "./Modal";
 export * from "./Select";
 export * from "./Alert";
+export * from "./List";
 export * from "./Dialog";
 export * from "./Divider";
+export * from "./Base";
 
 export * from "./Deposit";
 export * from "./AppHead";

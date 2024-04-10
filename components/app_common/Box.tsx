@@ -15,11 +15,11 @@ export const Box = styled("div")<BoxProps>(
     paddingTop: "2px",
   },
   (props) => ({
-    ...props.styles,
     display: props.display,
     alignItems: props.alignItems,
     justifyContent: props.justifyContent,
     color: props.theme.color.text,
     backgroundColor: props.theme.color.background,
+    ...props.styles,
   })
 );
