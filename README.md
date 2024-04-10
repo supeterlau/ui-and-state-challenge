@@ -1,3 +1,45 @@
+## How to run project ?
+
+Go into the project root directory, install dependencies and run project
+
+    cd app 
+
+    yarn
+
+    yarn dev
+    
+
+browser project at http://localhost:3000/
+    
+## Deliverables
+
+### UI Components
+
+- [x] Integrate and render the asset-list component as shown in the [storybook](https://storybook.cosmology.zone/?path=/docs/asset-assetlist--docs) — which should display the asset list.
+- [x] Implement an "Add Asset" button that, when clicked, opens a modal or another UI element of your choice.
+- [x] The modal (or popover or other) should render the ComboBox component, allowing the user to select an asset to add. Reference for the ComboBox implementation can be found in the [Cosmology Storybook](https://storybook.cosmology.zone/?path=/story/combobox--custom-combobox-item).
+- [x] The `state.selectedChain`, e.g., `osmosis` should determine which set of assets can show up in the list of assets. **( select chain IN Setting Page )**
+- [x] Upon selecting an asset from the ComboBox, the asset list should update to include the chosen asset. Likely should have a submit button to confirm.
+- [x] When the deposit button is clicked, open a modal as follows(Static component. No need to add functionalities):
+![deposit](./deposit.png)
+- [x] Not required, but if that was simple for you, consider adding the following: A layout, a menu, or some organization
+
+#### Notes
+
+- Using `Styled Component` only. Don't use any UI Kit.
+- `Theme` is optional.
+
+### Business Logic
+
+- [x] Add a state management library of your choice (e.g., Zustand, MobX).
+- [x] Create a store that can `addAssetList`. Use `Chain` and `AssetList` types from the `@chain-registry/types`, and data from `chain-registry`
+— [x] Add a small set, 2-5 random assets from `chain-registry`. Choose a default chain, such as `"osmosis"`, and store it as something like `state.selectedChain`.
+- [x] Implement a configurable data source adapter to support multiple data sources. Implement two data source providers as follows, and then config to use one of these potential data sources when starting the demo:
+  - chain-registry
+  - @chain-registry/client
+
+---
+
 # UI and State Challenge
 
 ## Overview
