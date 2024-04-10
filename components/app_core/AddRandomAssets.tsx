@@ -70,7 +70,6 @@ export const AddRandomAssets = () => {
     const assets = assetSymbols?.map((symbol) =>
       assetList?.assets.find((el) => el.symbol === symbol)
     );
-    console.log("assets", assets);
     addAssets(assets as Asset[]);
     setAssetSymbols([]);
   };
@@ -84,7 +83,6 @@ export const AddRandomAssets = () => {
     const getAssetList = async () => {
       await provider.init();
       const newAssetList = provider.getAssetList(chainName);
-      console.log(newAssetList);
       setAssetList(newAssetList);
     };
     getAssetList().catch(console.error);

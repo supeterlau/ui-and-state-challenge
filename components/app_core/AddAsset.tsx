@@ -35,11 +35,9 @@ export const AddAsset = (props: BaseProps) => {
   const addAsset = useAppStore((state) => state.addAssetList);
 
   const handleConfirm = (state: boolean) => {
-    console.log("assetSymbol", assetSymbol);
     if (!assetSymbol || assetSymbol === "") {
       handleAlert("No asset selected", "warning");
     } else if (userAssetList.some((el) => el.symbol === assetSymbol)) {
-      console.log(userAssetList);
       handleAlert("The Asset already exists", "warning");
     } else {
       setConfirmOpen(state);
@@ -61,7 +59,6 @@ export const AddAsset = (props: BaseProps) => {
     const getAssetList = async () => {
       await provider.init();
       const newAssetList = provider.getAssetList(chainName);
-      console.log(newAssetList);
       setAssetList(newAssetList);
     };
     getAssetList().catch(console.error);
